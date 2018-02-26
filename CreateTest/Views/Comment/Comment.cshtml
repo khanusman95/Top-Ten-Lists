@@ -1,0 +1,27 @@
+﻿@model CreateTest.Models.Comment
+
+@{ 
+    Layout = null;
+}
+
+@{
+    string valuePassedIn = this.ViewData.ContainsKey("ListId") ? this.ViewData["ListId"].ToString() : string.Empty;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Comment</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Comment", "Comment", FormMethod.Post, new { enctype = "multipart/form-data" })) {
+            <h3>Comemnt:</h3>                              
+            @Html.TextAreaFor(r => r.CommentContent,new { @class = "form-control", placeholder="Your Comment..."})
+            <input name="ListId" value="@valuePassedIn" hidden />
+            <input type="submit" value="Submit" /> <br /><br />
+        }
+    </div>
+</body>
+</html>

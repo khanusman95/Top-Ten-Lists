@@ -1,0 +1,39 @@
+﻿@model CreateTest.Models.TopTenList
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Create","List",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        List Title @Html.TextBox("Title", Model.Title) <br /><br />
+        List Desc @Html.TextBox("description", Model.Description) <br /><br />
+        Votable @Html.CheckBox("isVotable",Model.isVotable)<br /><br />
+        <input class="form-control col-md-2" type="file" id="file" name="file" multiple="multiple" required /> <br />
+        <table>
+            <tr>
+                <th>Item TItle</th>
+                <th>ITem Descr</th>
+            </tr>
+            @{
+                for (int i = 0; i < 3; i++)
+                {
+                    <tr>
+                        <td> @Html.TextBox("[" + i + "].Title") </td>
+                        <td> @Html.TextBox("[" + i + "].Description")</td>
+                        <td><input class="form-control col-md-2" type="file" id="file1" name="file1" multiple="multiple" required /> <br /></td>
+                    </tr>
+                }
+            }
+        </table>
+
+        <input type="submit" value="Submit" /> <br /><br />
+
+
+
+    </div>
+                }
+

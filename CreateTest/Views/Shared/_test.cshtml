@@ -1,0 +1,16 @@
+﻿@{
+    string valuePassedIn = this.ViewData.ContainsKey("ListId") ? this.ViewData["ListId"].ToString() : string.Empty;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Comment</title>
+</head>
+<body>
+    <div>
+        <h1>@valuePassedIn</h1>
+    </div>
+</body>
+</html>

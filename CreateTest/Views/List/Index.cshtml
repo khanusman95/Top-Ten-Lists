@@ -1,0 +1,31 @@
+﻿@model IEnumerable<CreateTest.Models.TopTenList>
+@{      
+    Layout = "~/Views/Shared/_hydrogen.cshtml";
+}
+
+<div id="fh5co-main">
+    <div class="container">
+
+        <div class="row">
+
+            <div id="fh5co-board" data-columns>
+                @foreach (var item in Model)
+                {
+                    <div class="item">
+                        <div class="animate-box">
+                            <a href="@Url.Content("~/Content/hydrogen/")images/img_1.jpg" class="image-popup fh5co-board-img" title="@item.Title">                                
+                                @{ 
+                                    string base64 = Convert.ToBase64String(item.Image);
+                                    string imgsrc = string.Format("data:image/gif;base64,{0}", base64);
+                                    <img src="@imgsrc"/>
+                                }
+                            </a>
+                        </div>
+                        <div class="fh5co-desc"><h4><a style="text-decoration:none;" href="@(Url.Action("Details","List",new { id = item.ID}))"><strong>@item.Title</strong></a></h4>@item.Description</div>
+                    </div>
+                }
+                                                
+            </div>
+        </div>
+    </div>
+</div>

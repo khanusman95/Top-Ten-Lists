@@ -1,0 +1,15 @@
+﻿@model IEnumerable<CreateTest.Models.Rated>
+@{
+    ViewBag.Title = "Rate";
+    Layout = "~/Views/Shared/_hydrogen.cshtml";
+}
+
+<h2>Rate</h2>
+
+@foreach(var item in Model)
+{
+    <p>@item.ID</p>
+    <p>@item.ListItem.ID</p>
+    <p>@item.ListItem.Title</p>
+    <p>@item.User.Id</p>
+}
